@@ -1,0 +1,221 @@
+<app-header></app-header>
+
+
+<nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom">
+    <div class="collapse navbar-collapse" id="navbarColor">
+        <ul class="navbar-nav">
+            <li class="nav-item roundedFilter  search-nav-item">
+                <span class="fa fa-search text-muted POIN" (click)="fillterProduct()"></span>
+                <input type="text" id="search" [(ngModel)]="SearchValue" class=""
+                    placeholder="useless items on white background">
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="mobile-filter">
+    <div id="accordion" class="subCat text-left">
+        <p class="pl-2 pt-2 pb-2" data-toggle="collapse" data-target="#Category" aria-expanded="true"
+            aria-controls="Category">
+            Categiry
+        </p>
+        <div id="Category" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <form id="category">
+                    <div class="form-group" *ngFor="let category of this.category">
+                        <input type="radio" name="radAnswer" id="artisan" (click)="FillterWithCategory(category)">
+                        <label for="artisan">{{category}}</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="accordion" class="subCat">
+        <p class="pl-2 pt-2 pb-2" data-toggle="collapse" data-target="#fillter" aria-expanded="true"
+            aria-controls="fillter">
+            Expanded Filters
+        </p>
+        <div id="fillter" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <form id="fillter">
+                    <div class="form-group" *ngFor="let category of this.category">
+                        <input type="radio" name="radAnswer" id="artisan" (click)="FillterWithCategory(category)">
+                        <label for="artisan">{{category}}</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="sidebar" class="">
+    <div id="accordion" class="subCat text-left">
+        <p class="pl-2 pt-2 pb-2" data-toggle="collapse" data-target="#Category" aria-expanded="true"
+            aria-controls="Category">
+            Categiry
+        </p>
+        <div id="Category" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <form id="category">
+                    <div class="form-group" *ngFor="let category of this.category">
+                        <input type="radio" name="radAnswer" id="artisan" (click)="FillterWithCategory(category)">
+                        <label for="artisan">{{category}}</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="accordion" class="subCat">
+        <p class="pl-2 pt-2 pb-2" data-toggle="collapse" data-target="#fillter" aria-expanded="true"
+            aria-controls="fillter">
+            Expanded Filters
+        </p>
+        <div id="fillter" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <form id="fillter">
+                    <div class="form-group" *ngFor="let category of this.category">
+                        <input type="radio" name="radAnswer" id="artisan" (click)="FillterWithCategory(category)">
+                        <label for="artisan">{{category}}</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="products">
+    <div class="container">
+        <div class="d-flex flex-row">
+            <div class="text-muted m-2" id="res">
+                <span class="text-muted sortted">Sort by</span>
+                <div id="sorting" class="border rounded p-1 m-1">
+                    <select name="sort" id="sort">
+                        <option value="popularity"><b>Popularity</b></option>
+                        <option value="prcie"><b>Price</b></option>
+                        <option value="rating"><b>Rating</b></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row text-left">
+            <ng-container *ngFor="let item of ProductsItem ">
+                <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 ">
+                    <div class="card h-auto mt-2 " (click)="SelectItem(item.id)">
+                        <img class="card-img-top" [src]="item.images[0]">
+                        <div class="card-body">
+                            <!-- <h5><b>{{item.title}}</b> </h5> -->
+                            <div class="d-flex flex-row my-2">
+                                <p>{{item.description | slice: 0:70 }} ...</p>
+                            </div>
+                            <div class="d-flex flex-row my-2">
+                                <h4 class="font-weight-bold">${{item.price }}</h4>
+                            </div>
+                            <div class="d-flex flex-row my-2">
+                                <p>{{item.category}} / {{item.title}}</p>
+                            </div>
+                            <div class="d-flex flex-row my-2">
+                                <div class="p-2">
+                                    <i class="fas fa-star fa-2" style="color:#F4B30C"></i>
+                                    <i class="fas fa-star fa-2" style="color:#F4B30C"></i>
+                                    <i class="fas fa-star fa-2" style="color:#F4B30C"></i>
+                                    <i class="fas fa-star fa-2" style="color:#F4B30C"></i>
+                                </div>
+                                <div class="p-2 ">
+                                    <p>{{item.rating}}</p>
+                                </div>
+                                <div class="p-2 ">
+                                    <button class="btn watch">
+                                        <i class="far fa-heart fa-2" style="color: #2979Ff"></i>
+                                        <span class="text-primary ml-1">watch</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ngb-pagination class="Pagination" [collectionSize]="limit" [(page)]="PageNumber" [maxSize]="5"
+                [rotate]="true" [ellipses]="false" [boundaryLinks]="true" (pageChange)="ChangePage($event)">
+            </ngb-pagination>
+
+        </div>
+    </div>
+</section>
+<!-- <div class="container">
+    <div class="category">
+        <ng-container *ngFor="let category of this.category">
+            <div>{{category}}</div>
+        </ng-container>
+
+    </div>
+    <div class="items">
+
+    </div>
+    <div class="input-group">
+        <form action="">
+            <div class="form-outline">
+                <input type="search" id="form1" class="form-control" id="search" name="search" #search
+                    [(ngModel)]="SearchValue" />
+                <button type="button" class="form-control btn btn-primary" (click)="fillterProduct()">
+                    Search </button>
+            </div>
+
+        </form>
+    </div>
+    <div style="margin:20px;" *ngIf="limit">
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <ng-container *ngFor="let item of ProductsItem ">
+                    <div class="col-md-8 col-lg-6 col-xl-4 " (click)="SelectItem(item.id)">
+                        <div class="card" style="border-radius: 15px; ">
+                            <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light"
+                                data-mdb-ripple-color="light">
+                                <img [src]="item.images[0]"
+                                    style="border-top-left-radius: 15px; border-top-right-radius: 15px;"
+                                    class="img-fluid" alt="Laptop" />
+                                <a href="#!">
+                                    <div class="mask"></div>
+                                </a>
+                            </div>
+                            <div class="card-body pb-0">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <p><a href="#!" class="text-dark">{{item.title}}</a></p>
+                                        <p class="small text-muted">{{item.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-0" />
+                            <div class="card-body pb-0">
+                                <div class="d-flex justify-content-between">
+                                    <p><a href="#!" class="text-dark">$3,999</a></p>
+                                    <p class="text-dark">#### 8787</p>
+                                </div>
+                                <p class="small text-muted">VISA Platinum</p>
+                            </div>
+                            <hr class="my-0" />
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
+                                    <a href="#!" class="text-dark fw-bold">Cancel</a>
+                                    <button type="button" class="btn btn-primary">Buy now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <table>
+            <tr *ngFor="let item of ProductsItem ">
+                <td>
+                    <span (click)="SelectItem(item.id)"> </span>
+                </td>
+            </tr>
+        </table>
+        <ngb-pagination [collectionSize]="limit" [(page)]="PageNumber" [maxSize]="5" [rotate]="true" [ellipses]="false"
+            [boundaryLinks]="true" (pageChange)="ChangePage($event)"></ngb-pagination>
+    </div>
+</div> -->

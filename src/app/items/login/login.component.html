@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-md-6 intro-section">
+            <div class="brand-wrapper">
+                <h1><a routerLink="/home"><img src="../../../assets/image/Logo.png" alt=""></a></h1>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6 form-section">
+            <div class="login-wrapper text-center">
+                <h2 class="NameLogo"> <span class="CureentColor">You</span>topia </h2>
+                <ngb-alert [dismissible]="false" *ngIf="error" type="danger">
+                    <strong>Warning!</strong> {{ErrMsg}}
+                </ngb-alert>
+                <form [formGroup]="formData" (ngSubmit)="onSubmitButtonClicked(formData.value)">
+                    <section class="text-left">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="CureentColor">Email address</label>
+                            <input type="email" class="form-control borderRaduse" id="exampleInputEmail1"
+                                formControlName="username" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="CureentColor">Password</label>
+                            <input type="password" class="form-control borderRaduse" id="exampleInputPassword1" required
+                                formControlName="password">
+                            <small>Forget your <span class="CureentColor">Password</span> </small>
+                        </div>
+                    </section>
+                    <button type="submit" class="btn loginbtn borderRaduse">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

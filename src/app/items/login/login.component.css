@@ -1,0 +1,72 @@
+.intro-section {
+    background-image: url("^assets/image/Day\ 1\ -\ Login\ Screens.png");
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+}
+
+@media (max-width: 991px) {
+    .intro-section {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .intro-section {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 575px) {
+    .intro-section {
+        min-height: 192px;
+        background-size: cover;
+    }
+}
+
+.form-section {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .form-section {
+        padding: 35px;
+    }
+}
+
+.login-wrapper {
+    width: 300px;
+    max-width: 100%;
+}
+
+@media (max-width: 575px) {
+    .login-wrapper {
+        width: 100%;
+    }
+}
+
+.login-wrapper .form-control {
+    border: 0;
+    border: 1px solid #0000007D;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 15px 10px;
+    margin-bottom: 7px;
+}
+
+
+.loginbtn {
+    background: #6C63FF;
+    color: white;
+    margin: 0 15px 0 15px;
+    width: -webkit-fill-available;
+}

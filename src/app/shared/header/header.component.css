@@ -1,0 +1,48 @@
+.navbar{
+    background-color: #FFFFFF;
+}
+
+.HeaderFetures {
+    color: gray;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 5px;
+    cursor: pointer;
+
+}
+
+.Sign {
+    border: 1px solid #9DC2FF;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.Cart {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(27, 78, 163, 0.2), 0px 4px 8px rgba(41, 121, 255, 0.2);
+    border-radius: 4px;
+}
+
+.notfication {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 70px;
+    top: calc(50% - 20px/2 - 12px);
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.75px;
+    text-transform: uppercase;
+    border-radius: 50%;
+}
+
+
+@media(min-width:300px) and (max-width:1199px) {
+.Cart ,.Sign{
+    display: none;
+}
+}

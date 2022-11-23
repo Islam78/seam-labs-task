@@ -1,0 +1,96 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-md-6 intro-section">
+            <div class="brand-wrapper">
+                <p class="mt-3 back" routerLink="/home">
+                    <img src="../../../assets/image/arrow-left.png" alt="">
+                    <span class="text-secondary font-weight-bold">back to list</span>
+                </p>
+            </div>
+            <img class="ProductImg" src="{{item ? SelectImg : ''}}" alt="">
+        </div>
+        <div class="col-sm-6 col-md-6 form-section">
+            <div class="login-wrapper text-left">
+                <h2></h2>
+                <div class="product">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="text-white bg-danger pl-3 pr-3 pb-1 Brand">{{item?.brand}}</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3>{{item?.title}}</h3>
+                    </div>
+                    <ul class="nav navbar navbar-left d-flex d-inline-flex p-0 " style="width: 115%;">
+                        <li class="nav-item d-inline-flex  mr-1 text-success category">
+                            {{item?.category}} |
+                        </li>
+                        <li class="nav-item d-inline-flex mr-1 ">
+                            <i class="fas fa-star fa-2" style="color:#F4B30C"></i>
+                            <i class="fas fa-star fa-2" style="color:#F4B30C"></i>
+                        </li>
+                        <li class="nav-item d-inline-flex  "> {{item?.rating}}
+                        </li>
+                        <li class="nav-item d-inline-flex  mr-1">
+                            ( {{item?.stock}} review)
+                        </li>
+                    </ul>
+                    <div class="mt-2 pr-3 content">
+                        <h6>Description:</h6>
+                        <p class="ml-2">{{item?.description}}</p>
+                    </div>
+                    <div class="mt-3 pr-3 content">
+                        <ng-container *ngFor="let i of item?.images">
+                            <div class="selectImage" (click)="ChangeImg(i)">
+                                <img src="{{item ? i : ''}}" alt="">
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="mt-3 pr-3 content">
+                        <h6>Size:</h6>
+                        <p class="sizeItem">1.5KG</p>
+                        <p class="sizeItem">15.5KG</p>
+                        <p class="sizeItem">30.5KG</p>
+                        <p class="sizeItem">80.5KG</p>
+                    </div>
+                    <div class="mt-3 pr-3 content">
+                        <h6>intgrendinet:</h6>
+                        <ul>
+                            <li>nutris</li>
+                            <li>vitman</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="AddCart d-flex flex-row p-2">
+            <div class="image">
+                <img src="{{item ? item.images[0] : ''}}" alt="">
+            </div>
+            <div class="mt-3 justify-content-between align-items-center">
+                <h5>{{item?.title}}</h5>
+                <span class="FooterCategory mr-1 text-success category">
+                    {{item?.category}}
+                </span>
+            </div>
+            <div class="ml-auto p-2 mt-3">
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    <span class="mt-1 mr-2 QtyString">Qty:</span>
+                    <span class="qty CureentColor" (click)="ChangeQty(false)">
+                        <i class="fas fa-minus "></i>
+                    </span>
+                    <input id="form1" min="0" name="quantity" disabled type="text" [(ngModel)]="QtyValue"
+                        class="form-control form-control-sm InputQty" />
+                    <span class="qty CureentColor" (click)="ChangeQty(true)">
+                        <i class="fas fa-plus "></i>
+                    </span>
+                </div>
+            </div>
+            <div class="p-2">
+                <button class="btn addCart mt-2">add To Cart</button>
+            </div>
+        </div>
+    </section>
+</div>

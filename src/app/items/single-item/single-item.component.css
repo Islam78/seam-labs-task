@@ -1,0 +1,127 @@
+@import url(../login/login.component.css);
+
+.product .Brand {
+    border-radius: 10px;
+}
+
+.category {
+    font-family: inherit;
+    letter-spacing: 3px;
+    font-weight: 300;
+    font-size: large;
+}
+
+.back {
+    cursor: pointer;
+}
+
+.back img {
+    margin-top: -3px !important;
+    margin-right: 6px !important;
+}
+
+.intro-section {
+    background-image: none;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+}
+
+.intro-section .ProductImg {
+    padding: 20%;
+    border-radius: 15%;
+
+}
+
+.selectImage {
+    display: table-cell;
+    max-width: 100px;
+    border-radius: 20px;
+    padding: 5px;
+    border: 7px solid #818AF91F;
+}
+
+.selectImage img {
+    width: 100%;
+    opacity: .5;
+}
+
+.selectImage img:hover {
+    opacity: .9;
+    cursor: pointer;
+}
+
+.sizeItem {
+    opacity: .5;
+    background-color: #818AF9;
+    color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 5px;
+    display: inline;
+    margin: 0 10px 0 0;
+}
+
+.sizeItem:hover {
+    opacity: .9;
+    cursor: pointer;
+}
+
+.AddCart {
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin: 10px;
+    position: fixed;
+    bottom: 0;
+    width: -webkit-fill-available;
+}
+
+@media (max-width: 767px) {
+    .FooterCategory, .AddCart .image {
+        display: none;
+    }
+}
+
+.AddCart img {
+    display: table-cell;
+    max-width: 100px;
+    border-radius: 10px;
+    max-HEIGHT: 70px;
+    padding: 5px;
+}
+
+.FooterCategory {
+    float: left;
+    position: absolute;
+    bottom: 10px;
+}
+
+.addCart {
+    background-color: #6C63FF;
+    color: white;
+    padding: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.qty {
+    border: 2px solid #6C63FF;
+    border-radius: 10px;
+    padding: 1px 5px 0 5px;
+    cursor: pointer;
+
+}
+
+.InputQty {
+    width: 35px;
+    background: white;
+    margin: 0 10px;
+}
+
+.container-fluid {
+    background-color: #F5F5F5 !important;
+}
